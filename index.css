@@ -1,0 +1,216 @@
+/* Estilos Globales */
+body {  
+    font-family: sans-serif;  
+    margin: 0;  
+    background-color: #0a192f; /* Color de fondo oscuro */  
+    color: #bfff00; /* Color de texto verde lima */  
+}  
+
+.container {  
+    display: flex;  
+    min-height: 100vh;  
+}  
+
+/* Sidebar */
+.sidebar {  
+    width: 200px;  
+    background-color: #040c16; /* Color sidebar */  
+    padding: 20px;  
+    color: #bfff00;  
+}  
+
+.logo {  
+    display: flex;  
+    align-items: center;  
+    margin-bottom: 30px;  
+}  
+
+.logo img {  
+    width: 30px;  
+    margin-right: 10px;  
+}  
+
+.logo span {  
+    font-size: 1.2em;  
+    font-weight: bold;  
+}  
+
+.sidebar nav ul {  
+    list-style: none;  
+    padding: 0;  
+}  
+
+.sidebar nav li {  
+    margin-bottom: 15px;  
+}  
+
+.sidebar nav a {  
+    text-decoration: none;  
+    color: #bfff00;  
+    display: flex;  
+    align-items: center;  
+}  
+
+.sidebar nav a i {  
+    margin-right: 10px;  
+    width: 20px;  
+    text-align: center;  
+}  
+
+/* Contenido Principal */
+.main-content {  
+    flex-grow: 1;  
+    padding: 20px;  
+}  
+
+/* Carrusel de Estrenos */
+.featured-movies {  
+    margin-bottom: 30px;  
+}  
+
+.featured-movies h2 {  
+    color: #bfff00;  
+    margin-bottom: 10px;  
+}  
+
+.marquee-container {  
+    width: 100%;  
+    overflow: hidden;  
+    position: relative;  
+    background-color: #0d1b2a;  
+    padding: 1rem;  
+    border-radius: 8px;  
+}  
+
+.marquee-container marquee {  
+    width: 100%;  
+    white-space: nowrap; /* Evita que las imágenes se envuelvan a la siguiente línea */  
+    display: flex; /* Asegura que los elementos estén en línea */  
+    align-items: center; /* Centra verticalmente los elementos */  
+}  
+
+/* Ajusta los títulos dentro de las carátulas */
+.estreno-container {
+    display: inline-block; /* Asegura que estén en línea */  
+    position: relative;  
+    width: 150px;  
+    text-align: center;  
+    overflow: hidden;  
+}
+
+.estreno-container img {
+    width: 100%;  
+    height: auto;  
+    border-radius: 8px;  
+}  
+
+.estreno-container p {
+    position: absolute;  
+    bottom: 0;  
+    width: 100%;  
+    margin: 0;  
+    padding: 5px;  
+    background-color: rgba(0, 0, 0, 0.6);  
+    color: #ffffff;  
+    font-size: 0.8em;  
+    text-align: center;  
+    border-bottom-left-radius: 8px;  
+    border-bottom-right-radius: 8px;  
+    box-sizing: border-box;  
+}
+
+/* Sección de Películas y Series (Grid) */
+.movies h2, .series h2 {  
+    color: #bfff00;  
+    margin-bottom: 20px;  
+}  
+
+.grid-container {  
+    display: grid;  
+    grid-template-columns: repeat(6, 1fr);  
+    gap: 10px;  
+}  
+
+.grid-container img {  
+    width: 100%;  
+    border-radius: 5px;  
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);  
+    transition: transform 0.2s ease;  
+    object-fit: cover;  
+    aspect-ratio: 2/3;  
+}  
+
+.grid-container img:hover {  
+    transform: scale(1.05);  
+}  
+
+/* Footer */
+.footer {  
+    background-color: #040c16;  
+    color: #bfff00;  
+    text-align: center;  
+    padding: 20px;  
+    width: 100%;  
+    font-size: 0.8em;  
+}  
+
+/* Responsive section */
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column;  
+    }
+
+    .sidebar {
+        width: 100%;  
+        text-align: center;  
+    }
+
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr);  
+        gap: 15px;  
+    }
+
+    .marquee-container img {
+        width: 150px;  
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);  
+    }
+
+    .estreno-container {
+        width: 120px;  
+    }
+
+    .main-content {
+        padding: 10px;  
+    }
+
+    .marquee-container img {
+        width: 120px;  
+    }
+}
+
+@media (max-width: 480px) {
+    .grid-container {
+        grid-template-columns: 1fr;  
+    }
+
+    .estreno-container {
+        width: 100px;  
+    }
+
+    .sidebar nav li {
+        margin-bottom: 10px;  
+    }
+
+    .marquee-container img {
+        width: 90px;  
+    }
+
+    .footer {
+        font-size: 0.7em;  
+    }
+}
