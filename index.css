@@ -1,189 +1,170 @@
-/* Estilos Globales */  
-body {  
-    font-family: sans-serif;  
-    margin: 0;  
-    background-color: #0a192f; /* Color de fondo oscuro */  
-    color: #bfff00; /* Color de texto verde lima */  
-}  
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-.container {  
-    display: flex;  
-    flex-direction: column;  
-    min-height: 100vh;  
-}  
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #1a1a1a;
+    color: white;
+}
 
-/* Sidebar */  
-.sidebar {  
-    width: 100%;  
-    background-color: #040c16; /* Color sidebar */  
-    padding: 1rem;  
-    color: #bfff00;  
-    text-align: center;  
-}  
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 1200px;
+}
 
-.logo {  
-    display: flex;  
-    align-items: center;  
-    justify-content: center;  
-    margin-bottom: 1.5rem;  
-}  
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #2c2c2c;
+    padding: 20px;
+    position: fixed;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.3);
+}
 
-.logo img {  
-    width: 2rem;  
-    margin-right: 0.5rem;  
-}  
+.sidebar .logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
 
-.logo span {  
-    font-size: 1.2rem;  
-    font-weight: bold;  
-}  
+.sidebar .logo img {
+    width: 100px;
+    border-radius: 50%;
+}
 
-.sidebar nav ul {  
-    list-style: none;  
-    padding: 0;  
-}  
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+}
 
-.sidebar nav li {  
-    margin-bottom: 1rem;  
-}  
+.sidebar nav ul li {
+    margin: 10px 0;
+}
 
-.sidebar nav a {  
-    text-decoration: none;  
-    color: #bfff00;  
-    display: flex;  
-    align-items: center;  
-    justify-content: center;  
-}  
+.sidebar nav ul li a {
+    color: #f8f8f8;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
 
-.sidebar nav a i {  
-    margin-right: 0.5rem;  
-    width: 1.5rem;  
-    text-align: center;  
-}  
+.sidebar nav ul li a:hover {
+    background: #444;
+}
 
-/* Contenido Principal */  
-.main-content {  
-    flex-grow: 1;  
-    padding: 1rem;  
-}  
+.sidebar nav ul li a i {
+    margin-right: 10px;
+}
 
-/* Carrusel de Estrenos */  
-.featured-movies {  
-    margin-bottom: 2rem;  
-}  
+/* Main content */
+.main-content {
+    margin-left: 260px;
+    width: calc(100% - 260px);
+    padding: 20px;
+}
 
-.featured-movies h2 {  
-    color: #bfff00;  
-    margin-bottom: 1rem;  
-    text-align: center;  
-}  
+/* Carrusel de estrenos */
+.marquee-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    width: 100%;
+    background-color: #222;
+    padding: 10px;
+    border-radius: 10px;
+}
 
-.marquee-container {  
-    width: 100%;  
-    overflow: hidden;  
-    position: relative;  
-    background-color: #0d1b2a;  
-    padding: 1rem;  
-    border-radius: 8px;  
-}  
+.marquee-content {
+    display: flex;
+    gap: 10px;
+    animation: scroll 15s linear infinite;
+}
 
-.marquee-content {  
-    display: flex;  
-    animation: marquee 20s linear infinite;  
-}  
+.estreno-container {
+    display: inline-block;
+    text-align: center;
+}
 
-@keyframes marquee {  
-    0% { transform: translateX(100%); }  
-    100% { transform: translateX(-100%); }  
-}  
+.estreno-container img {
+    width: 150px;
+    height: auto;
+    border-radius: 10px;
+    border: 2px solid #e50914;
+}
 
-.estreno-container {  
-    flex: 0 0 auto;  
-    width: 150px;  
-    margin-right: 1rem;  
-    text-align: center;  
-    position: relative;  
-}  
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
 
-.estreno-container img {  
-    width: 100%;  
-    height: auto;  
-    border-radius: 8px;  
-}  
+/* Sección de películas y series */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 10px;
+}
 
-.estreno-container p {  
-    position: absolute;  
-    bottom: 0;  
-    width: 100%;  
-    margin: 0;  
-    padding: 0.5rem;  
-    background-color: rgba(0, 0, 0, 0.6);  
-    color: #ffffff;  
-    font-size: 0.8rem;  
-    text-align: center;  
-    border-bottom-left-radius: 8px;  
-    border-bottom-right-radius: 8px;  
-    box-sizing: border-box;  
-}  
+.grid-container img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
 
-/* Sección de Películas y Series (Grid) */  
-.movies h2, .series h2 {  
-    color: #bfff00;  
-    margin-bottom: 1rem;  
-    text-align: center;  
-}  
+.grid-container img:hover {
+    transform: scale(1.05);
+}
 
-.grid-container {  
-    display: grid;  
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));  
-    gap: 1rem;  
-}  
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #2c2c2c;
+    width: 100%;
+    color: #ccc;
+}
 
-.grid-container img {  
-    width: 100%;  
-    border-radius: 5px;  
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);  
-    transition: transform 0.2s ease;  
-    object-fit: cover;  
-    aspect-ratio: 2/3;  
-}  
+/* Estilos para dispositivos móviles */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
 
-.grid-container img:hover {  
-    transform: scale(1.05);  
-}  
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        background-color: #1e1e1e;
+    }
 
-/* Footer */  
-.footer {  
-    background-color: #040c16;  
-    color: #bfff00;  
-    text-align: center;  
-    padding: 1rem;  
-    width: 100%;  
-    font-size: 0.8rem;  
-}  
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
 
-/* Responsive section */  
-@media (min-width: 768px) {  
-    .container {  
-        flex-direction: row;  
-    }  
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr); /* Muestra 2 imágenes por fila */
+    }
 
-    .sidebar {  
-        width: 200px;  
-        text-align: left;  
-    }  
-
-    .sidebar nav a {  
-        justify-content: flex-start;  
-    }  
-
-    .grid-container {  
-        grid-template-columns: repeat(4, 1fr);  
-    }  
-}  
-
-@media (min-width: 1024px) {  
-    .grid-container {  
-        grid-template-columns: repeat(6, 1fr);  
-    }  
-}  
+    .estreno-container img {
+        width: 120px; /* Ajusta el tamaño de las imágenes en móviles */
+    }
+}
